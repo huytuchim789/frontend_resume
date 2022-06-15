@@ -1,144 +1,170 @@
-import { createContext, useContext, useEffect, useRef, useState } from "react";
-import { useToast } from '@chakra-ui/react';
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
+import { useToast } from '@chakra-ui/react'
 
-const ResumeContext = createContext();
+const ResumeContext = createContext()
 
-export const useResume = () => useContext(ResumeContext);
+export const useResume = () => useContext(ResumeContext)
 
 export const ResumeProvider = ({ children }) => {
+  const printElem = useRef()
+  const toast = useToast()
+  const [loading, setLoading] = useState(false)
+  const [theme, setTheme] = useState('purple.400')
+  console.log()
+  const [user, setUser] = useState(
+    //user info of gmail
+    JSON.parse(localStorage.getItem('user'))?.userInfo
+  )
 
-    const printElem = useRef();
-    const toast = useToast();
+  //info of CVs
+  const [about, setAbout] = useState({
+    name: '',
+    role: '',
+    email: '',
+    phone: '',
+    address: '',
+    linkedin: '',
+    picture: '',
+  })
 
-    const [theme, setTheme] = useState('purple.400');
+  const [educationList, setEducationList] = useState([
+    {
+      id: '',
+      degree: '',
+      school: '',
+      startYr: 0,
+      endYr: 0,
+      grade: '',
+    },
+  ])
 
-    const [about, setAbout] = useState({
-        name: "",
-        role: "",
-        email: "",
-        phone: "",
-        address: "",
-        linkedin: "",
-        picture:"",
-    });
+  const [skills, setSkills] = useState([
+    {
+      id: 1,
+      name: 'JavaScript',
+    },
+    {
+      id: 2,
+      name: 'ReactJS',
+    },
+    {
+      id: 3,
+      name: 'NodeJS',
+    },
+    {
+      id: 4,
+      name: 'MongoDB',
+    },
+    {
+      id: 5,
+      name: 'ExpressJS',
+    },
+    {
+      id: 6,
+      name: 'PHP',
+    },
+    {
+      id: 7,
+      name: '.Net',
+    },
+    {
+      id: 8,
+      name: 'Java',
+    },
+    {
+      id: 9,
+      name: 'RestAPI',
+    },
+    {
+      id: 10,
+      name: 'jQuery',
+    },
+    {
+      id: 11,
+      name: 'MySQL',
+    },
+    {
+      id: 12,
+      name: 'Ajax',
+    },
+    {
+      id: 13,
+      name: 'GitHub',
+    },
+    {
+      id: 14,
+      name: 'HTML',
+    },
+    {
+      id: 15,
+      name: 'CSS',
+    },
+    {
+      id: 16,
+      name: 'TailwindCSS',
+    },
+    {
+      id: 17,
+      name: 'Bootstrap',
+    },
+  ])
 
-    const [educationList, setEducationList] = useState([
-        {
-            id: "",
-            degree: "",
-            school: "",
-            startYr: 0,
-            endYr: 0,
-            grade: "",
-        },
-    ]);
+  const [workList, setWorkList] = useState([
+    {
+      id: '',
+      position: '',
+      company: '',
+      type: '',
+      startDate: '',
+      endDate: '',
+      description: '',
+    },
+  ])
 
-    const [skills, setSkills] = useState([
-        {
-            id: 1,
-            name: "JavaScript",
-        },
-        {
-            id: 2,
-            name: "ReactJS",
-        },
-        {
-            id: 3,
-            name: "NodeJS",
-        },
-        {
-            id: 4,
-            name: "MongoDB",
-        },
-        {
-            id: 5,
-            name: "ExpressJS",
-        },
-        {
-            id: 6,
-            name: "PHP",
-        },
-        {
-            id: 7,
-            name: ".Net",
-        },
-        {
-            id: 8,
-            name: "Java",
-        },
-        {
-            id: 9,
-            name: "RestAPI",
-        },
-        {
-            id: 10,
-            name: "jQuery",
-        },
-        {
-            id: 11,
-            name: "MySQL",
-        },
-        {
-            id: 12,
-            name: "Ajax",
-        },
-        {
-            id: 13,
-            name: "GitHub",
-        },
-        {
-            id: 14,
-            name: "HTML",
-        },
-        {
-            id: 15,
-            name: "CSS",
-        },
-        {
-            id: 16,
-            name: "TailwindCSS",
-        },
-        {
-            id: 17,
-            name: "Bootstrap",
-        },
-    ]);
+  const [projects, setProjects] = useState([
+    {
+      id: '',
+      name: '',
+      description: '',
+      url: '',
+    },
+  ])
 
-    const [workList, setWorkList] = useState([
-        {
-            id: "",
-            position: "",
-            company: "",
-            type: "",
-            startDate: "",
-            endDate: "",
-            description: "",
-        },
-    ]);
+  // useEffect(() => {
+  //     toast({
+  //         title: `${theme.split(".", 1)} selected`,
+  //         status: 'success',
+  //         isClosable: true,
+  //       })
+  // }, [theme]);
 
-    const [projects, setProjects] = useState([
-        {
-            id: "",
-            name: "",
-            description: "",
-            url: "",
-        },
-    ]);
+  const value = {
+    about,
+    setAbout,
+    educationList,
+    setEducationList,
+    skills,
+    setSkills,
+    workList,
+    setWorkList,
+    projects,
+    setProjects,
+    printElem,
+    theme,
+    setTheme,
+    user,
+    setUser,
+    loading,
+    setLoading,
+  }
 
-
-    // useEffect(() => {
-    //     toast({
-    //         title: `${theme.split(".", 1)} selected`,
-    //         status: 'success',
-    //         isClosable: true,
-    //       })
-    // }, [theme]);
-
-    const value = { about, setAbout, educationList, setEducationList, skills, setSkills, workList, setWorkList, projects, setProjects, printElem, theme, setTheme };
-
-    return (
-        <ResumeContext.Provider value={value}>
-            {children}
-        </ResumeContext.Provider>
-    )
+  return (
+    <ResumeContext.Provider value={value}>{children}</ResumeContext.Provider>
+  )
 }
