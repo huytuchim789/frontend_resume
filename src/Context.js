@@ -135,7 +135,33 @@ export const ResumeProvider = ({ children }) => {
       url: '',
     },
   ])
-
+  const [personality, setPersonality] = useState({
+    eyebrows: {
+      type: 'Straight',
+      analysis:
+        'Usually with great perseverance and courage. People with thick straight eyebrows are often strong-willed, courageous and stern. People with thin straight eyebrows are often clever, talented and shrewd.',
+    },
+    eyes: {
+      type: 'Big',
+      analysis:
+        'Kind and compassionate, can be good friends to talk with. Good understanding of movie and arts, sometime overwhelmed by emotions.',
+    },
+    nose: {
+      type: 'Small',
+      analysis:
+        'People with small noses are thoughtful and sensitive, have a conservative and peaceful personality, hesitate to act, have less ambition, and are relatively flat in middle age. Men must work harder at work, and women are slightly delayed in marriage some.',
+    },
+    mouth: {
+      type: 'Thick',
+      analysis:
+        'Passionate and warm-hearted, emphasizing sensory stimuli, doing things practically and resentful, and less likely to use tricks.',
+    },
+    face: {
+      type: 'Oval',
+      analysis:
+        'More likely to have better improvement in their careers. They also spend more money and pay attention to quality of life.',
+    },
+  })
   // useEffect(() => {
   //     toast({
   //         title: `${theme.split(".", 1)} selected`,
@@ -162,6 +188,8 @@ export const ResumeProvider = ({ children }) => {
     setUser,
     loading,
     setLoading,
+    personality,
+    setPersonality,
   }
 
   return (

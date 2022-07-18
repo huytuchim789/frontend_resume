@@ -13,12 +13,20 @@ import {
 import { useResume } from '../Context'
 import { MdMail, MdLocalPhone, MdLocationPin } from 'react-icons/md'
 import { RiLinkedinBoxFill } from 'react-icons/ri'
-import { BiLinkExternal } from 'react-icons/bi'
+import { BiLinkExternal, BiUserCircle } from 'react-icons/bi'
 import React from 'react'
 
 const ResumePreview = () => {
-  const { theme, about, educationList, skills, workList, projects, printElem } =
-    useResume()
+  const {
+    theme,
+    about,
+    educationList,
+    skills,
+    workList,
+    projects,
+    printElem,
+    personality,
+  } = useResume()
   const imgStyle = {
     width: '115px',
     height: '115px',
@@ -61,15 +69,17 @@ const ResumePreview = () => {
           >
             <HStack spacing={1}>
               <MdMail />{' '}
-              <Text>{about.email ? about.email : 'jhondoe@gmail.com'}</Text>
+              <Text>
+                {about.email ? about.email : 'tranhuytu242000@gmail.com'}
+              </Text>
             </HStack>
             <HStack spacing={1}>
               <MdLocalPhone />{' '}
-              <Text>{about.phone ? about.phone : '+918559584846'}</Text>
+              <Text>{about.phone ? about.phone : '0382038678'}</Text>
             </HStack>
             <HStack spacing={1}>
               <MdLocationPin />{' '}
-              <Text>{about.address ? about.address : 'Pune, MH'}</Text>
+              <Text>{about.address ? about.address : 'Dong Da,Ha Noi'}</Text>
             </HStack>
             <HStack spacing={1}>
               <RiLinkedinBoxFill />{' '}
@@ -193,7 +203,6 @@ const ResumePreview = () => {
                   ))}
                 </Wrap>
               </VStack>
-              // SKILLS // PROJECTS
               <VStack alignItems={'flex-start'}>
                 <Heading as="h4" size="md" color={'gray.700'}>
                   PROJECTS
@@ -227,7 +236,43 @@ const ResumePreview = () => {
                   )
                 })}
               </VStack>
-              // PROJECTS
+              // PROJECTS // Personality
+              <VStack alignItems={'flex-start'}>
+                <Heading as="h4" size="md" color={'gray.700'}>
+                  Personality
+                </Heading>
+                {Object.keys(personality).map((pro) => {
+                  return (
+                    <VStack
+                      spacing={0.5}
+                      alignItems={'flex-start'}
+                      lineHeight={1.3}
+                      pb={2}
+                    >
+                      <HStack as="a" target="_blank" spacing={0.5}>
+                        <Text fontWeight={'medium'} flex={'row'}>
+                          {pro}
+                        </Text>
+                        <BiUserCircle />
+                      </HStack>
+                      <UnorderedList pl={5}>
+                        <ListItem>
+                          <Text fontSize={'sm'} as="i" color="tomato">
+                            {personality[pro].type}
+                          </Text>
+                        </ListItem>
+                      </UnorderedList>
+                      <UnorderedList pl={5}>
+                        <ListItem>
+                          <Text fontSize={'sm'} as="p">
+                            {personality[pro].analysis}
+                          </Text>
+                        </ListItem>
+                      </UnorderedList>
+                    </VStack>
+                  )
+                })}
+              </VStack>
             </VStack>
           </HStack>
         </div>

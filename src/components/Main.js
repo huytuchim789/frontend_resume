@@ -33,6 +33,7 @@ const Main = () => {
         workList,
         about,
         _id,
+        personality,
       } = response.data[0]
       // console.log(response.data)
       setAbout(about)
@@ -41,6 +42,7 @@ const Main = () => {
       setSkills(skills)
       setWorkList(workList)
       setProjects(projects)
+      setPersonality(personality)
     }
     myCVApi()
   }, [])
@@ -75,6 +77,8 @@ const Main = () => {
     setWorkList,
     projects,
     setProjects,
+    personality,
+    setPersonality,
   } = useResume()
 
   const handlePrint = useReactToPrint({
@@ -94,6 +98,7 @@ const Main = () => {
     const canvas = await html2canvas(printElem.current)
     const image = canvas.toDataURL('image/png', 0.2)
     const data = new FormData()
+    about.image = image
     data.append('user', JSON.stringify(user))
     data.append('theme', JSON.stringify(theme))
     data.append('about', JSON.stringify(about))

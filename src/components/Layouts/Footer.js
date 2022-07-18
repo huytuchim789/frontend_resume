@@ -34,7 +34,7 @@ const Footer = () => {
             target={'_blank'}
             color={'blue.600'}
           >
-            Jigar Sable
+            Tran Huy Tu
           </Text>
         </Stack>
 

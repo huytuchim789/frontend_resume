@@ -74,7 +74,7 @@ const Navbar = () => {
           style={{ fontFamily: 'Pacifico' }}
         >
           <Text as="a" href="/">
-            Thuy Loi University
+            Hedspi
           </Text>
         </Heading>
         <Spacer></Spacer>
