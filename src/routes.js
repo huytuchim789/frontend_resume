@@ -24,7 +24,7 @@ export const routes = [
     ),
   },
   {
-    path: '/contact',
+    path: '/admin',
     element: <Contact />,
   },
 ]

@@ -1,7 +1,6 @@
 import axios from 'axios'
 
 export const addCV = (data) => {
-  console.log(data)
   return axios.post('/addCV', data, {
     headers: {
       accept: 'application/json',

@@ -74,7 +74,7 @@ const Navbar = () => {
           style={{ fontFamily: 'Pacifico' }}
         >
           <Text as="a" href="/">
-            Hedspi
+            USTH
           </Text>
         </Heading>
         <Spacer></Spacer>
@@ -88,10 +88,10 @@ const Navbar = () => {
             Home
           </Text>
           <Text as="a" href="myCV" fontSize="lg">
-            My CV
+            Crawl Table
           </Text>
-          <Text as="a" href={`/contact?email=${user?.email}`} fontSize="lg">
-            Contact
+          <Text as="a" href={`/admin`} fontSize="lg">
+            Admin
           </Text>
 
           {user ? (

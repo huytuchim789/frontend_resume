@@ -27,7 +27,7 @@ const Footer = () => {
         align={{ base: 'center', md: 'center' }}
       >
         <Stack direction={{ base: 'column', md: 'row' }} fontWeight={'medium'}>
-          <Text>&copy; 2022 Resumegen. Designed By</Text>
+          <Text>&copy; 2022 USTH Crawl . Designed By</Text>
           <Text
             as={'a'}
             href={'https://www.linkedin.com/in/jigar-sable/'}

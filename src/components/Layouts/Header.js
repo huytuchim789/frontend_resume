@@ -26,7 +26,7 @@ const Header = () => {
               bgGradient="linear(to-r, purple.500, blue.600)"
               bgClip="text"
             >
-              If You Want To Get Gaining, Get A Resume
+              If You Want To Get Gaining, Get A Crawl
             </Heading>
 
             <Text
@@ -34,7 +34,7 @@ const Header = () => {
               lineHeight={1.7}
               style={{ fontFamily: 'Poppins' }}
             >
-              Resumegen is a tool that often constitutes an automated process in
+              Crawl is a tool that often constitutes an automated process in
               which you follow a template and input your information. Ability to
               build, print, and download your resume for free in minutes.
             </Text>
@@ -50,7 +50,7 @@ const Header = () => {
                 px={6}
                 colorScheme={'purple'}
               >
-                Build Resume
+                Crawl Data
               </Button>
             </Stack>
           </Stack>
